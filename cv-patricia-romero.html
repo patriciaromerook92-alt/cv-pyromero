@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Patricia Yanina Romero</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 50px 30px 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .photo-container {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            border: 5px solid white;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: #667eea;
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background: #20ba5a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-pdf {
+            background: white;
+            color: #667eea;
+        }
+
+        .btn-pdf:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px;
+            background: #f8f9ff;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .info-item:hover {
+            background: #eef1ff;
+            transform: translateX(5px);
+        }
+
+        .info-item i {
+            color: #667eea;
+            font-size: 20px;
+            width: 25px;
+        }
+
+        .info-label {
+            font-weight: bold;
+            color: #555;
+        }
+
+        .info-value {
+            color: #333;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .experience-item, .education-item {
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover, .education-item:hover {
+            background: #eef1ff;
+            transform: translateX(5px);
+        }
+
+        .item-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .hobbies-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .hobby-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background: #f8f9ff;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .hobby-item:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .hobby-item i {
+            font-size: 18px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 25px;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            
+            .action-buttons {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="photo-container">
+                <i class="fas fa-user"></i>
+            </div>
+            <h1>Patricia Yanina Romero</h1>
+            <p class="subtitle">Profesional en Asistencia y Cuidado Infantil</p>
+            
+            <div class="action-buttons">
+                <a href="https://wa.me/5493764000000?text=Hola%20Patricia,%20vi%20tu%20CV%20y%20me%20gustaría%20contactarte" class="btn btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+                </a>
+                <button onclick="descargarPDF()" class="btn btn-pdf">
+                    <i class="fas fa-file-pdf"></i> Descargar PDF
+                </button>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-user-circle"></i> Información Personal
+                </h2>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <i class="fas fa-id-card"></i>
+                        <div>
+                            <div class="info-label">DNI</div>
+                            <div class="info-value">37.084.048</div>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-flag"></i>
+                        <div>
+                            <div class="info-label">Nacionalidad</div>
+                            <div class="info-value">Argentina</div>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <div class="info-label">Dirección</div>
+                            <div class="info-value">Calle Malvinas 6282<br>CP 3300, Posadas, Misiones</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-briefcase"></i> Experiencia Laboral
+                </h2>
+                <div class="experience-item">
+                    <div class="item-title">Asistencia a Niños</div>
+                    <p style="color: #666; margin-top: 8px;">
+                        Experiencia en cuidado y atención de niños, brindando un ambiente seguro y estimulante para su desarrollo.
+                    </p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-graduation-cap"></i> Educación
+                </h2>
+                <div class="education-item">
+                    <div class="item-title">Secundario Completo</div>
+                    <p style="color: #666; margin-top: 8px;">
+                        Educación secundaria finalizada con éxito.
+                    </p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-language"></i> Idiomas
+                </h2>
+                <div class="skills-container">
+                    <div class="skill-tag">
+                        <i class="fas fa-star"></i> Español - Nativo
+                    </div>
+                    <div class="skill-tag">
+                        <i class="fas fa-star-half-alt"></i> Inglés - Básico
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-tools"></i> Habilidades
+                </h2>
+                <div class="skills-container">
+                    <div class="skill-tag">Manejo de Crisis</div>
+                    <div class="skill-tag">Oratoria</div>
+                    <div class="skill-tag">Negociación en Turbulencia</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-heart"></i> Hobbies e Intereses
+                </h2>
+                <div class="hobbies-list">
+                    <div class="hobby-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Gimnasia</span>
+                    </div>
+                    <div class="hobby-item">
+                        <i class="fas fa-book"></i>
+                        <span>Leer Libros</span>
+                    </div>
+                    <div class="hobby-item">
+                        <i class="fas fa-music"></i>
+                        <span>Escuchar Música</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        function descargarPDF() {
+            const elemento = document.querySelector('.container');
+            const botonesOriginales = document.querySelector('.action-buttons');
+            
+            botonesOriginales.style.display = 'none';
+            
+            const opciones = {
+                margin: 10,
+                filename: 'CV_Patricia_Yanina_Romero.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            
+            html2pdf().set(opciones).from(elemento).save().then(() => {
+                botonesOriginales.style.display = 'flex';
+            });
+        }
+
+        document.querySelector('.photo-container').addEventListener('click', function() {
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'image/*';
+            input.onchange = function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        const photoContainer = document.querySelector('.photo-container');
+                        photoContainer.innerHTML = `<img src="${event.target.result}" alt="Foto de perfil">`;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            };
+            input.click();
+        });
+    </script>
+</body>
+</html>
